@@ -3808,6 +3808,88 @@ body {
   padding: 6rem 0
 }
 
+#skills .skills-scroll {
+  margin-top: 1.5rem;
+  overflow: hidden
+}
+
+#skills .skills-track {
+  --skill-column-width: 25%;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  margin-left: 0;
+  margin-right: 0;
+  scroll-behavior: smooth;
+  scrollbar-width: none
+}
+
+#skills .skills-track::-webkit-scrollbar {
+  display: none
+}
+
+#skills .skills-track>* {
+  flex: 0 0 var(--skill-column-width);
+  max-width: var(--skill-column-width);
+  width: var(--skill-column-width)
+}
+
+#skills .skills-dots {
+  display: flex;
+  justify-content: center;
+  gap: .65rem;
+  margin-top: 2rem
+}
+
+#skills .skills-dot {
+  width: .65rem;
+  height: .65rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, .35);
+  cursor: pointer;
+  transition: background-color .2s ease, transform .2s ease
+}
+
+#skills .skills-dot:hover,
+#skills .skills-dot:focus-visible {
+  background-color: rgba(255, 255, 255, .75);
+  outline: none;
+  transform: scale(1.15)
+}
+
+#skills .skills-dot.active {
+  background-color: #fff;
+  transform: scale(1.2)
+}
+
+@media (max-width:991.98px) and (orientation: landscape) {
+  #skills .skills-track {
+    --skill-column-width: 50%
+  }
+}
+
+@media (max-width:767.98px),
+(orientation: portrait) {
+  #skills .skills-scroll {
+    overflow: hidden
+  }
+
+  #skills .skills-track {
+    --skill-column-width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: hidden
+  }
+
+  #skills .skills-track>* {
+    flex-basis: var(--skill-column-width);
+    max-width: 100%;
+    width: var(--skill-column-width)
+  }
+}
+
 .text-white-75 {
   color: rgba(255, 255, 255, .75) !important
 }
@@ -3973,6 +4055,20 @@ header.masthead h1 {
 
   background-attachment: fixed;
   background-image: linear-gradient(90deg, rgba(52, 123, 255, 0.3), rgba(255, 0, 150, 0.3)), url("https://images.unsplash.com/photo-1719701529422-b52945558bd8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-position: center;
+  background-size: cover;
+  row-gap: 4rem;
+}
+
+.parallax-container-half {
+  display: flex;
+  min-height: 50vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-attachment: fixed;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(192, 192, 192, 0.5)), url("https://images.unsplash.com/photo-1719701529422-b52945558bd8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-position: center;
   background-size: cover;
   row-gap: 4rem;
